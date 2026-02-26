@@ -1,4 +1,5 @@
 📉 Gradient Descent from Scratch & Comparison with Scikit-Learn
+
 📌 Project Overview
 
 This repository demonstrates the implementation of Gradient Descent for Linear Regression in two different ways:
