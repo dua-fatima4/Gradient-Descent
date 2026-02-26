@@ -1,98 +1,123 @@
-📉 Gradient Descent Visualization for Linear Regression
-
+📉 Gradient Descent from Scratch & Comparison with Scikit-Learn
 📌 Project Overview
 
-This project demonstrates how Gradient Descent updates the intercept (b) in Simple Linear Regression.
+This repository demonstrates the implementation of Gradient Descent for Linear Regression in two different ways:
 
-The objective is to understand how the cost function derivative adjusts the regression line step-by-step until it approaches the Optimal Least Squares (OLS) solution.
+📘 Manual Gradient Descent (Intercept update step-by-step visualization)
 
-Instead of directly using the final model, this project visually shows how the regression line moves during each iteration.
+🛠 Custom Gradient Descent Class (Updating both slope and intercept)
 
-📁 Dataset
+📊 Comparison with Scikit-learn’s LinearRegression
 
-The dataset is generated using:
+The goal of this project is to deeply understand how Gradient Descent optimizes parameters (m and b) and how it compares to the closed-form solution used in OLS.
 
-from sklearn.datasets import make_regression
+🧠 Concepts Covered
 
-Parameters used:
+What is Gradient Descent?
 
-n_samples = 4
+Cost Function (Mean Squared Error)
 
-n_features = 1
+Partial Derivatives
 
-noise = 80
+Updating parameters iteratively
 
-random_state = 13
+Learning Rate
 
-This creates a simple synthetic regression dataset with noise.
+Epochs
 
-🧠 Algorithm Concept
-🔹 Model Equation
+Convergence behavior
 
-y = mx + b
+Comparison with Ordinary Least Squares (OLS)
 
-Where:
+📁 Notebooks Included:
 
-m = slope
+1️⃣ Notebook 1 – Step-by-Step Gradient Descent (Intercept Update)
 
-b = intercept
+Dataset generated using make_regression
 
-🔹 Gradient Descent Update Rule
+Manual update of intercept (b) while keeping slope (m) fixed
 
-To update intercept (b), we compute the derivative of the cost function:
+Visualization of regression line after each iteration
 
-∂J/∂b = -2 Σ (y - mx - b)
+Comparison with Scikit-learn OLS line
 
-Update rule:
+What This Notebook Shows:
 
-b = b - α * ∂J/∂b
+How b changes after each gradient step
 
-Where:
+How regression line moves toward optimal solution
 
-α = learning rate
+Visual understanding of convergence
 
-∂J/∂b = gradient
+2️⃣ Notebook 2 – Full Gradient Descent Implementation
 
-b = updated intercept
+Larger synthetic dataset
 
-⚙️ Implementation Details
+Train/Test split
 
-Slope (m) is initialized from OLS result (~78.35)
+Cross-validation using cross_val_score
 
-Intercept (b) starts from 0
+Custom GDRegressor class created from scratch
 
-Learning rate (lr) = 0.1
+Simultaneous update of:
 
-Multiple iterations are performed
+Slope (m)
 
-Regression line is plotted after each update
+Intercept (b)
 
-The model gradually moves toward the optimal OLS solution.
+⚙️ Technologies Used:
 
-📊 Visualization
+Python
 
-The graph contains:
+NumPy
 
-🔴 Red Line → OLS solution (from sklearn)
+Pandas
 
-🔵 Blue Line → Initial line (b = 0)
+Matplotlib
 
-🟢 Green/Black/Yellow Lines → Updated lines after each iteration
+Scikit-learn
 
-This clearly shows how Gradient Descent shifts the line upward until it matches OLS.
+📊 Model Comparison:
+
+🔴 Scikit-Learn Linear Regression
+
+Uses closed-form Ordinary Least Squares solution.
+
+Example Output:
+
+m = 28.12
+b = -2.27
+R² ≈ 0.63
+
+🔵 Custom Gradient Descent
+
+Initial values:
+
+m = 100
+b = -120
+
+After 50 epochs:
+
+m ≈ 28.15
+b ≈ -2.30
+
+R² Score:
+
+0.634
+
+✅ Very close to Scikit-learn result.
 
 📈 Results
 
-From sklearn OLS:
+Gradient Descent successfully converged to near-optimal parameters.
 
-Slope (m):
-78.3506
+Custom implementation achieved nearly the same R² score as Scikit-learn.
 
-Intercept (b):
-26.1596
+Demonstrated importance of:
 
-After multiple Gradient Descent updates, the intercept converges close to:
+Learning rate
 
-b ≈ 26.11
+Proper initialization
 
-This confirms that Gradient Descent successfully approaches the optimal solution.
+Number of epochs
+
